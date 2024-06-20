@@ -1,4 +1,4 @@
-
+import {WEATHER_API_KEY,WEATHER_URL} from './config.js'
 const API_Key = WEATHER_API_KEY
 
 
