@@ -11,7 +11,7 @@ const permission = navigator.geolocation.getCurrentPosition(
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
 
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_Key}`;
+        const url = `${WEATHER_URL}?lat=${lat}&lon=${lon}&units=metric&appid=${API_Key}`;
 
         const weather = async () => {
             const response = await fetch(url);
