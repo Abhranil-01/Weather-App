@@ -80,6 +80,14 @@ button.addEventListener("click", () => {
     const city = document.querySelector(".search").value;
     checkWeather(city);
 });
+ 
+document.querySelectorAll('.search')[0].addEventListener("keydown", () => {
+    if(event.key === 'Enter') {
+        const city = document.querySelector(".search").value;
+        checkWeather(city);
+    }
+   
+})
 
 document.addEventListener("DOMContentLoaded", () => {
     if (!button.clicked) {
