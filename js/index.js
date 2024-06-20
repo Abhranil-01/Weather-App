@@ -17,7 +17,7 @@ const permission = navigator.geolocation.getCurrentPosition(
             const response = await fetch(url);
             const data = await response.json();
             if (data) {
-                console.log(data);
+                // console.log(data);
                 humidityWindOne.style.display = "";
                 tempOne.style.display = "";
                 const date = new Date(data.dt * 1000);
@@ -62,7 +62,7 @@ const permission = navigator.geolocation.getCurrentPosition(
 
         tempOne.style.display = "none";
         humidityWindOne.style.display = "none";
-        console.log("hello");
+        // console.log("hello");
         const left=document.querySelector('.left');
         left.classList.add("active");
         left.innerHTML= `
@@ -94,7 +94,7 @@ const checkWeather = async (city) => {
     try {
         const response = await fetch(`${urlBase}&q=${city}`);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         if (data) {
             document.querySelector(".location").style.display = "";
 
