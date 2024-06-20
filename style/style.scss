@@ -64,6 +64,7 @@ body {
         align-items: center;
         justify-content: start;
 
+
         img {
             height: 18vh;
             width: 8vw;
@@ -186,9 +187,22 @@ body {
         align-items: center;
         justify-content: center;
     }
-
+.temparature-box{
+    text-align: center;
+  
+    .not-found{
+        height: 150px;
+        margin-bottom: 20px;
+        img{
+            filter: invert(100%);
+            height: 100%;
+            width: 100%;
+        }
+       
+    }
+}
     .temp {
-        @include temp-card(15vw);
+     @include temp-card(15vw);
     }
 
     .humidity-wind {

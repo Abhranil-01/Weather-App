@@ -1,4 +1,6 @@
-const API_Key = "c290c425dacdd8f98201184e379e6874";
+
+const API_Key = WEATHER_API_KEY
+
 
 //!get location from geo location
 const humidityWindOne = document.querySelectorAll(".humidity-wind")[0];
@@ -72,8 +74,8 @@ const permission = navigator.geolocation.getCurrentPosition(
 //!get location from search
 const button = document.querySelector("#search-btn");
 const humidityWind = document.querySelectorAll(".humidity-wind")[1];
-const temp = document.querySelectorAll(".temp")[1];
 
+const temparatureBox=document.querySelectorAll(".temparature-box")[0];
 button.addEventListener("click", () => {
     const city = document.querySelector(".search").value;
     checkWeather(city);
@@ -82,7 +84,7 @@ button.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
     if (!button.clicked) {
         humidityWind.style.display = "none";
-        temp.style.display = "none";
+        // temp.style.display = "none";
     }
 });
 
@@ -94,19 +96,23 @@ const checkWeather = async (city) => {
         const data = await response.json();
         console.log(data);
         if (data) {
+            document.querySelector(".location").style.display = "";
+
             document.querySelector(".location").innerHTML = `<h2>${data.name},${data.sys.country}</h2>`;
             humidityWind.style.display = "";
-            temp.style.display = "";
+            // temp.style.display = "";
 
-            temp.innerHTML = `
-                <div class="temp-container">
+            temparatureBox.innerHTML = `
+            <div class="temp">
+              <div class="temp-container">
                     <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/>
                     <div class="temp-content">
                         <h4>${data.weather[0].main}</h4>
                         <h1>${Math.round(data.main.temp)}°c</h1>
                         <h4>${Math.round(data.main.temp_min)}°c / ${Math.round(data.main.temp_max)}°c</h4>
                     </div>
-                </div>`;
+                </div></div>
+              `;
 
             humidityWind.innerHTML = `
                 <div class="humidity">
@@ -123,7 +129,13 @@ const checkWeather = async (city) => {
                 </div>`;
         }
     } catch (error) {
-        document.querySelector(".location").innerHTML = `<p>City not found</p>`;
+        document.querySelector(".location").style.display = "none";
+        temparatureBox.innerHTML=`<div class="not-found">
+        <img src="Images/map_855003.png"/>
+        </div>
+        <h3>City Not Found</h3>
+        `
+        humidityWind.innerHTML =""
 
     }
 };

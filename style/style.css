@@ -159,6 +159,18 @@ body {
   align-items: center;
   justify-content: center;
 }
+.right .temparature-box {
+  text-align: center;
+}
+.right .temparature-box .not-found {
+  height: 150px;
+  margin-bottom: 20px;
+}
+.right .temparature-box .not-found img {
+  filter: invert(100%);
+  height: 100%;
+  width: 100%;
+}
 .right .temp {
   height: 20vh;
   width: 15vw;
